@@ -1,0 +1,53 @@
+/*
+ The "old-school" method of using padding-bottom does not work
+ in combination with an element that relies on max-width.
+
+ This more modern approach works in either context.
+*/
+lite-youtube {
+	display: block; /* required for layout if JS fails to load */
+	padding-bottom: 0; /* remove old method of aspect ratio */
+	aspect-ratio: 16/9;
+}
+
+.lite-youtube-fallback {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	gap: 5%;
+	aspect-ratio: 16/9;
+	padding: 5%;
+	background-color: #000;
+	text-decoration: none;
+	transition: opacity 0.15s ease-in-out;
+	opacity: 0.85;
+}
+
+.lite-youtube-fallback:hover {
+	opacity: 1;
+}
+
+.lite-youtube-fallback:focus-visible {
+	outline: 1px solid red;
+	outline-offset: 3px;
+	opacity: 1;
+}
+
+.lite-youtube-fallback,
+.lite-youtube-fallback:link,
+.lite-youtube-fallback:hover,
+.lite-youtube-fallback:focus,
+.lite-youtube-fallback:active {
+	color: #fff !important;
+}
+
+.lite-youtube-fallback::before {
+	display: block;
+	content: "";
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="94" height="67" xml:space="preserve"><path fill="red" d="M15.113 3.169C8.148 3.716 2.883 9.38 2.543 16.36 2.262 22.114 2 28.731 2 33.301c0 4.621.27 11.341.551 17.138.336 6.891 5.484 12.52 12.355 13.151C22.511 64.293 33.515 65 47 65c13.449 0 24.434-.703 32.035-1.402 6.898-.637 12.055-6.301 12.387-13.219.293-6.106.578-13.086.578-17.078 0-3.949-.281-10.824-.57-16.883-.332-7.008-5.61-12.707-12.602-13.254C71.34 2.574 60.543 2 47 2c-13.578 0-24.396.578-31.887 1.169zM38 19.942l23.199 13.359L38 46.656V19.942z"/><path fill="white" d="m38 19.942 23.199 13.359L38 46.656z"/></svg>')
+		center / cover no-repeat;
+	width: 20%;
+	aspect-ratio: 94/67;
+}
