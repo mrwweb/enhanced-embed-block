@@ -41,6 +41,10 @@ I'm considering building a PRO version with the potential following features:
 
 If enough people express interest, I'll build it! [Let me know if you're interested!](https://mrwweb.com/wordpress-plugins/enhanced-embed-block/#pro)
 
+= Contribute on Github =
+
+[Enhanced Embed Block is on Github](https://github.com/mrwweb/enhanced-embed-block) for pull requests and bug reports.
+
 == Installation ==
 
 1. From your WordPress site’s dashboard, go to Plugins > Add New.
