@@ -239,6 +239,11 @@ export class LiteYTEmbed extends HTMLElement {
 			"alt",
 			`${this.videoPlay}: ${this.videoTitle}`
 		);
+		this.domRefImg.fallback.onload = (e) => {
+			if (e.target.naturalWidth === 120) {
+				e.target.parentElement.firstElementChild.remove();
+			}
+		};
 	}
 	initIntersectionObserver() {
 		const options = {
