@@ -81,7 +81,7 @@ function replace_youtube_embed_with_web_component( $content, $block ) {
 	$content = sprintf(
 		'<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube">
 			<div class="wp-block-embed__wrapper">
-				<lite-youtube videoid="%1$s" videoplay="%2$s" videoStartAt="%3$d" posterloading="lazy" nocookie>
+				<lite-youtube videoid="%1$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="maxresdefault" posterloading="lazy" nocookie>
 					<a href="%4$s" class="lite-youtube-fallback" target="_blank" rel="noreferrer noopenner">Watch "%5$s" on YouTube</a>
 				</lite-youtube>
 			</div>
