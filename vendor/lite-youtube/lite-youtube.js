@@ -227,10 +227,13 @@ export class LiteYTEmbed extends HTMLElement {
 	initImagePlaceholder() {
 		const posterUrlWebp = `https://i.ytimg.com/vi_webp/${this.videoId}/${this.posterQuality}.webp`;
 		const posterUrlJpeg = `https://i.ytimg.com/vi/${this.videoId}/${this.posterQuality}.jpg`;
+		// PATCH: This changes the fallback img src to be the hqdefault quality no matter what since some old videos don't have higher resolution
+		const posterUrlFallback = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
 		this.domRefImg.fallback.loading = this.posterLoading;
 		this.domRefImg.webp.srcset = posterUrlWebp;
 		this.domRefImg.jpeg.srcset = posterUrlJpeg;
-		this.domRefImg.fallback.src = posterUrlJpeg;
+		// PATCH: Change fallback src. See comment on line 230 for reasoning
+		this.domRefImg.fallback.src = posterUrlFallback;
 		this.domRefImg.fallback.setAttribute(
 			"aria-label",
 			`${this.videoPlay}: ${this.videoTitle}`
@@ -239,9 +242,10 @@ export class LiteYTEmbed extends HTMLElement {
 			"alt",
 			`${this.videoPlay}: ${this.videoTitle}`
 		);
+		// PATCH: Recursively load picture sources in order, deleting any where the image's natural width indicates that it is the YouTube image fallback placeholder rather than a real video poster.
 		this.domRefImg.fallback.onload = (e) => {
 			if (e.target.naturalWidth === 120) {
-				e.target.parentElement.firstElementChild.remove();
+				this.domRefImg.fallback.parentElement.firstElementChild.remove();
 			}
 		};
 	}
