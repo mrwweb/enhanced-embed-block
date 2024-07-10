@@ -77,12 +77,20 @@ function replace_youtube_embed_with_web_component( $content, $block ) {
 	/* translators: %s: title from YouTube video */
 	$play_button = sprintf( __( 'Play: %s', 'enhanced-embed-block' ), $video_title );
 
+	/**
+	 * Filter the poster quality for the YouTube preview thumbnail
+	 * 
+	 * @since 1.1.0
+	 * @param string $quality One of mqdefault, hqdefault, sddefault, or maxresdefault (default)
+	 */
+	$poster_quality = apply_filters( 'eeb_posterquality', 'maxresdefault' );
+
 	/* Craft the new output: the web component with HTML fallback link */
 	$content = sprintf(
 		'<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube">
 			<div class="wp-block-embed__wrapper">
-				<lite-youtube videoid="%1$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="maxresdefault" posterloading="lazy" nocookie>
-					<a href="%4$s" class="lite-youtube-fallback" target="_blank" rel="noreferrer noopenner">Watch "%5$s" on YouTube</a>
+				<lite-youtube videoid="%1$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="%4$s" posterloading="lazy" nocookie>
+					<a href="%5$s" class="lite-youtube-fallback" target="_blank" rel="noreferrer noopenner">Watch "%6$s" on YouTube</a>
 				</lite-youtube>
 			</div>
 			%6$s
@@ -90,6 +98,7 @@ function replace_youtube_embed_with_web_component( $content, $block ) {
 		esc_attr( $video_id ),
 		esc_attr( $play_button ),
 		$start_time ? intval( $start_time ) : 0,
+		in_array( $poster_quality, array( 'mqdefault', 'hqdefault', 'sddefault', 'maxresdefault' ), true ) ? $poster_quality : 'maxresdefault',
 		esc_url( $block['attrs']['url'] ),
 		esc_html( $video_title ),
 		$embed_caption
