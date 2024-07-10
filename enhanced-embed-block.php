@@ -35,17 +35,17 @@ function enqueue_lite_youtube_component() {
 		'1.5.0',
 		array( 'in_footer' => true )
 	);
-
-	wp_enqueue_block_style(
-		'core/embed',
-		array(
-			'handle' => 'lite-youtube-custom',
-			'src'    => plugins_url( 'css/lite-youtube-custom.css', __FILE__ ),
-			'path'   => plugin_dir_path( __FILE__ ) . '/css/lite-youtube-custom.css',
-			'ver'    => EEB_VERSION,
-		)
-	);
 }
+
+wp_enqueue_block_style(
+	'core/embed',
+	array(
+		'handle' => 'lite-youtube-custom',
+		'src'    => plugins_url( 'css/lite-youtube-custom.css', __FILE__ ),
+		'path'   => plugin_dir_path( __FILE__ ) . '/css/lite-youtube-custom.css',
+		'ver'    => EEB_VERSION,
+	)
+);
 
 /* Pre-2020 Blocks */
 add_filter( 'render_block_core-embed/youtube', __NAMESPACE__ . '\replace_youtube_embed_with_web_component', 10, 2 );

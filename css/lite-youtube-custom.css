@@ -5,34 +5,43 @@
  This more modern approach works in either context.
 */
 lite-youtube {
-	display: block; /* required for layout if JS fails to load */
-	padding-bottom: 0; /* remove old method of aspect ratio */
-	aspect-ratio: 16/9;
+	display: block !important; /* required for layout if JS fails to load */
+	padding-bottom: 0 !important; /* remove old method of aspect ratio */
+	aspect-ratio: 16/9 !important;
 }
 
 .lite-youtube-fallback {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	gap: 5%;
-	aspect-ratio: 16/9;
-	padding: 5%;
-	background-color: #000;
-	text-decoration: none;
-	transition: opacity 0.15s ease-in-out;
-	opacity: 0.85;
+	--eeb-fallback-background: #000;
+
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	align-items: center !important;
+	text-align: center !important;
+	gap: 5% !important;
+	aspect-ratio: 16/9 !important;
+	padding: 5% !important;
+	background-color: var(--eeb-fallback-background) !important;
+	text-decoration: none !important;
+	transition: opacity 0.15s ease-in-out !important;
 }
 
 .lite-youtube-fallback:hover {
-	opacity: 1;
+	text-decoration: underline !important;
+}
+.lite-youtube-fallback:hover::before {
+	transform: scale(1.1) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+	.lite-youtube-fallback:hover::before {
+		transform: none !important;
+	}
 }
 
 .lite-youtube-fallback:focus-visible {
-	outline: 1px solid red;
-	outline-offset: 3px;
-	opacity: 1;
+	--eeb-focus-outline-color: red;
+	outline: 2px solid var(--eeb-focus-outline-color) !important;
+	outline-offset: 3px !important;
 }
 
 .lite-youtube-fallback,
@@ -44,10 +53,12 @@ lite-youtube {
 }
 
 .lite-youtube-fallback::before {
-	display: block;
-	content: "";
-	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="94" height="67" xml:space="preserve"><path fill="red" d="M15.113 3.169C8.148 3.716 2.883 9.38 2.543 16.36 2.262 22.114 2 28.731 2 33.301c0 4.621.27 11.341.551 17.138.336 6.891 5.484 12.52 12.355 13.151C22.511 64.293 33.515 65 47 65c13.449 0 24.434-.703 32.035-1.402 6.898-.637 12.055-6.301 12.387-13.219.293-6.106.578-13.086.578-17.078 0-3.949-.281-10.824-.57-16.883-.332-7.008-5.61-12.707-12.602-13.254C71.34 2.574 60.543 2 47 2c-13.578 0-24.396.578-31.887 1.169zM38 19.942l23.199 13.359L38 46.656V19.942z"/><path fill="white" d="m38 19.942 23.199 13.359L38 46.656z"/></svg>')
-		center / cover no-repeat;
-	width: 20%;
-	aspect-ratio: 94/67;
+	display: block !important;
+	content: "" !important;
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>')
+		center / cover no-repeat !important;
+	width: 68px !important;
+	height: 48px !important;
+	aspect-ratio: 94/67 !important;
+	transition: 0.15s transform ease-in-out !important;
 }
