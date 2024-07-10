@@ -86,20 +86,29 @@ function replace_youtube_embed_with_web_component( $content, $block ) {
 	 */
 	$poster_quality = apply_filters( 'eeb_posterquality', 'maxresdefault' );
 
+	/**
+	 * Filter to determine whether to load embed from nocookie YouTube domain
+	 * 
+	 * @since 1.1.0
+	 * @param bool $use_nocookie Whether to use the nocookie domain (default: true)
+	 */
+	$nocookie = apply_filters( 'eeb_nocookie', true );
+
 	/* Craft the new output: the web component with HTML fallback link */
 	$content = sprintf(
 		'<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube">
 			<div class="wp-block-embed__wrapper">
-				<lite-youtube videoid="%1$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="%4$s" posterloading="lazy" nocookie>
-					<a href="%5$s" class="lite-youtube-fallback" target="_blank" rel="noreferrer noopenner">Watch "%6$s" on YouTube</a>
+				<lite-youtube videoid="%1$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="%4$s" posterloading="lazy"%5$s>
+					<a href="%6$s" class="lite-youtube-fallback" target="_blank" rel="noreferrer noopenner">Watch "%7$s" on YouTube</a>
 				</lite-youtube>
 			</div>
-			%6$s
+			%8$s
 		</figure>',
 		esc_attr( $video_id ),
 		esc_attr( $play_button ),
 		$start_time ? intval( $start_time ) : 0,
 		in_array( $poster_quality, array( 'mqdefault', 'hqdefault', 'sddefault', 'maxresdefault' ), true ) ? $poster_quality : 'maxresdefault',
+		$nocookie ? ' nocookie' : '',
 		esc_url( $block['attrs']['url'] ),
 		esc_html( $video_title ),
 		$embed_caption
