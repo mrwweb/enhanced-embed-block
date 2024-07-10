@@ -59,7 +59,8 @@ add_filter( 'render_block_core/embed', __NAMESPACE__ . '\replace_youtube_embed_w
  * @return string HTML for embed block
  */
 function replace_youtube_embed_with_web_component( $content, $block ) {
-	if ( 'youtube' !== $block['attrs']['providerNameSlug'] && isset( $block['attrs']['url'] ) ) {
+	$isValidYouTube = 'youtube' === $block['attrs']['providerNameSlug'] && isset( $block['attrs']['url'] );
+	if( is_feed() || ! $isValidYouTube ) {
 		return $content;
 	}
 
