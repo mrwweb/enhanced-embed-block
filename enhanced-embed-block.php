@@ -12,7 +12,7 @@
  * License:         GPLv3 or later
  * License URI:     https://www.gnu.org/licenses/gpl-3.0.html
  *
- * @package         Enhanced_YouTube_Embed_Block
+ * @package         Enhanced_Embed_Block
  */
 
 namespace EnhancedEmbedBlock;
