@@ -1,0 +1,32 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/?page_id=5",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "siteOptions": {
+    "blogname": "Testing \"Enhanced Embed Block for YouTube\" plugin"
+  },
+  "phpExtensionBundles": ["kitchen-sink"],
+  "login": true,
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "enhanced-embed-block"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "importWxr",
+      "file": {
+        "resource": "url",
+        "url": "https://ps.w.org/enhanced-embed-block/assets/enhanced-embed-block-test-page.xml"
+      }
+    }
+  ]
+}
