@@ -6,7 +6,7 @@
  * Author:          Mark Root-Wiley, MRW Web Design
  * Author URI:      https://MRWweb.com
  * Text Domain:     enhanced-embed-block
- * Version:         1.0.0
+ * Version:         1.1.0
  * Requires at least: 6.5
  * Requires PHP:    7.4
  * License:         GPLv3 or later
@@ -19,7 +19,7 @@ namespace EnhancedEmbedBlock;
 
 use WP_HTML_TAG_Processor;
 
-define( 'EEB_VERSION', '1.0.0' );
+define( 'EEB_VERSION', '1.1.0' );
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_lite_youtube_component' );
 /**
@@ -64,7 +64,7 @@ add_filter( 'render_block_core/embed', __NAMESPACE__ . '\replace_youtube_embed_w
  */
 function replace_youtube_embed_with_web_component( $content, $block ) {
 	$isValidYouTube = 'youtube' === $block['attrs']['providerNameSlug'] && isset( $block['attrs']['url'] );
-	if( is_feed() || ! $isValidYouTube ) {
+	if( ! $isValidYouTube || is_feed() ) {
 		return $content;
 	}
 
@@ -140,6 +140,8 @@ function extract_title_from_embed_code( $html ) {
  *
  * @param string $html A block of HTML containing a YouTube iframe.
  * @return string The figcaption OR an empty string
+ * 
+ * @todo Replace this with HTML Tag Processor, if possible
  */
 function extract_figcaption_from_embed_code( $html ) {
 	preg_match( '/<figcaption(.*?)<\/figcaption>/s', $html, $match );

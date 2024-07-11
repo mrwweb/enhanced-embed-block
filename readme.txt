@@ -1,11 +1,11 @@
 === Enhanced Embed Block for YouTube ===
-Contributors: mrwweb
+Contributors: mrwweb, cbirdsong
 Donate link: https://paypal.me/rootwiley
 Tags: YouTube, embed, video, block, performance
 Requires at least: 6.5
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.0-retry-github-action
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,7 +57,7 @@ If enough people express interest, I'll build it! [Let me know if you're interes
 
 = Does this create a new block? =
 
-No. It enhances the default WordPress YouTube embed block.
+No. It enhances the default WordPress embed block for YouTube videos.
 
 = Does it automatically enhance all my YouTube embeds? =
 
@@ -75,17 +75,25 @@ Your embed blocks go back to how they were before.
 
 Not right now. If you'd pay for a PRO version with this feature, [let me know](https://mrwweb.com/wordpress-plugins/enhanced-embed-block/#pro).
 
-= Known Issues =
-
-Some older videos do not have a thumbnail image in the modern webp format. This can lead to a blurry gray video poster image for the video. [Upstream issue](https://github.com/justinribeiro/lite-youtube/issues/79)
-
 == Software ==
 
 This plugin uses the [`lite-youtube` custom-element](https://github.com/justinribeiro/lite-youtube) under the MIT license. Thank you to Paul Irish and Justin Ribiero for their work on that project.
 
 == Changelog ==
 
+= 1.1.0 =
+- Fix missing file on WordPress.org version of plugin due to misconfigured Github deployment
+- MAJOR CHANGE: The default poster image is now the highest quality possible. There is a new `eeb_posterquality` filter to change that, if desired. (#5)
+- Add experimental patch to the `lite-youtube` web component that detects missing YouTube poster images and fallsback to different format / lower quality (#4)
+- Add `!important` to all CSS styles to improve theme compatibility. Add custom properties to make color changes to fallback styles easier. (#8)
+- Add `eeb_nocookie` filter to customize domain for loading the YouTube iframe (defaults to nocookie) (#7)
+- Don't use lite-youtube embed in feeds (#9)
+- Props to @cbirdsong for numerous issues on Github that led to most of these changes
+
 = 1.0.0 =
 - Initial release to the WordPress repository!
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Fix plugin in WordPress repository. Use higher quality poster image with new fallback detection. Don't apply embed changes to feeds. Developer improvements.
