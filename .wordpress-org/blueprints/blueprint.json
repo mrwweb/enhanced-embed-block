@@ -8,12 +8,11 @@
   "siteOptions": {
     "blogname": "Testing \"Enhanced Embed Block for YouTube\" plugin"
   },
-  "phpExtensionBundles": ["kitchen-sink"],
   "login": true,
   "steps": [
     {
       "step": "installPlugin",
-      "pluginZipFile": {
+      "pluginData": {
         "resource": "wordpress.org/plugins",
         "slug": "enhanced-embed-block"
       },
