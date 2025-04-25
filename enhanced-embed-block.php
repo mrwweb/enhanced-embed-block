@@ -175,6 +175,8 @@ function extract_youtube_id_from_uri( $uri ) {
  */
 function extract_start_time_from_uri( $uri ) {
 	$params = wp_parse_url( $uri, PHP_URL_QUERY );
-	parse_str( $params, $query );
+	if( !empty($params) ) {
+		parse_str( $params, $query );
+	}
 	return $query['t'] ?? false;
 }
