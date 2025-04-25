@@ -9,6 +9,8 @@
  * Version:         1.1.0
  * Requires at least: 6.5
  * Requires PHP:    7.4
+ * GitHub Plugin URI: mrwweb/mrw-post-cleanup-utilities
+ * Primary Branch:  main
  * License:         GPLv3 or later
  * License URI:     https://www.gnu.org/licenses/gpl-3.0.html
  *
