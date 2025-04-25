@@ -6,6 +6,6 @@
     "@justinribeiro/lite-youtube": "^1.5.0"
   },
   "scripts": {
-    "update-lite-youtube": "cp node_modules/@justinribeiro/lite-youtube/lite-youtube.js vendor/lite-youtube/; cp node_modules/@justinribeiro/lite-youtube/README.md vendor/lite-youtube; cp node_modules/@justinribeiro/lite-youtube/LICENSE vendor/lite-youtube"
+    "update-lite-youtube": "cp node_modules/@justinribeiro/lite-youtube/lite-youtube.js vendor/lite-youtube/; cp node_modules/@justinribeiro/lite-youtube/README.md vendor/lite-youtube/; cp node_modules/@justinribeiro/lite-youtube/LICENSE vendor/lite-youtube/"
   }
 }

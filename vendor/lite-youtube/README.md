@@ -22,6 +22,9 @@
 - _new in v1.3_: Adds `loading=lazy` to image placeholder for more perf with `posterloading` attr if you'd like to use eager
 - _new in v1.4_: Adds `short` attr for enabling experimental YouTube Shorts mobile interaction support. See (example video)[https://www.youtube.com/watch?v=aw7CRQTuRfo] for details.
 - _new in v1.5_: Adds support for nonce attribute via `window.liteYouTubeNonce` for CSP 2/3 support.
+- _new in v1.6_: Adds `autoPause` for pausing videos scrolled off screen; adds `--lite-youtube-aspect-ratio` CSS custom property create custom aspect ratio videos; adds `--lite-youtube-frame-shadow-visible` CSS custom property to disable frame shadow (flat look); adds a named slot `image` that allows for setting custom poster image; adds `credentialless` for COEP
+- _new in v1.7_: Adds support for 404 fallback posters; add noscript injector to lightdom for search indexing (disable via `disablenoscript` attribute in v1.7.1).
+- _new in v1.8_: Adds support for styling the play button via `::part` (thank you [@Lukinoh](https://github.com/Lukinoh)!).
 
 ## Install via package manager
 
@@ -47,7 +50,7 @@ import '@justinribeiro/lite-youtube';
 If you want the paste-and-go version, you can simply load it via CDN:
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
 ```
 
 ## Basic Usage
@@ -182,6 +185,56 @@ Uses Intersection Observer if available to automatically load the YouTube iframe
   videoid="guJLfqTFfIw"
   posterquality="maxresdefault"
 ></lite-youtube>
+```
+
+## Use the named slot to set a custom poster image
+```html
+<lite-youtube videoid="guJLfqTFfIw">
+  <img slot="image" src="my-poster-override.jpg">
+</lite-youtube>
+```
+
+## Set custom aspect ratio
+```html
+<style>
+  lite-youtube {
+    --lite-youtube-aspect-ratio: 2 / 3;
+  }
+</style>
+<lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+```
+
+## Disable the frame shadow (flat look)
+```html
+<style>
+  lite-youtube {
+    /* No Shadow */
+    --lite-youtube-frame-shadow-visible: no;
+  }
+</style>
+<lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+```
+
+## Customize the play button
+```html
+<style>
+  lite-youtube::part(playButton) {
+    /* You custom style */
+  }
+</style>
+<lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+```
+
+## Auto-Pause video when scrolled out of view
+Note: the custom poster image will load with this set, but will then disappear without any user interaction because of the intersection observer starting.
+```html
+ <lite-youtube videoid="VLrYOji75Vc" autopause></lite-youtube>
+```
+
+## NoScript disable
+As of v1.7.0, we inject into the lightdom a noscript for SEO help. This can conflict with server side rendered noscript injects. To disable, simply pass `disablenoscript` to the component:
+```html
+ <lite-youtube videoid="VLrYOji75Vc" disablenoscript></lite-youtube>
 ```
 
 ## YouTube QueryParams
