@@ -35,7 +35,7 @@ function enqueue_lite_youtube_component() {
 		plugins_url( 'vendor/lite-youtube/lite-youtube.js', __FILE__ ),
 		array(),
 		'1.5.0',
-		array( 'in_footer' => true )
+		array( 'async' => true )
 	);
 }
 
