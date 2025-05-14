@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:     Enhanced Embed Block for YouTube
+ * Plugin Name:     Enhanced Embed Block for YouTube & Vimeo
  * Plugin URI:      https://mrwweb.com/wordpress-plugins/enhanced-embed-block/
- * Description:     Enhance the default YouTube Embed block to load faster.
+ * Description:     Make the default YouTube and Vimeo Embed blocks load faster.
  * Author:          Mark Root-Wiley, MRW Web Design
  * Author URI:      https://MRWweb.com
  * Text Domain:     enhanced-embed-block

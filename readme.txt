@@ -84,9 +84,11 @@ This plugin uses the [`lite-vimeo` custom-element](https://github.com/cshawaus/l
 == Changelog ==
 
 = 1.2.0 (14 May 2025) =
+
 - Add support for Vimeo!
 - Upgrade `lite-youtube` to 1.8.1 (includes new native support for fallback thumbnail formats and sizes)
 - Further performance improvements to load script asynchronously and only load styles when needed
+- Fix undefined $params fatal error when trying to extract time code from YouTube URLs
 - Code quality improvements
 
 = 1.1.0 (11 July 2024) =
