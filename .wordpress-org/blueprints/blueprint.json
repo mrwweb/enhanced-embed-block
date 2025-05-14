@@ -6,7 +6,7 @@
     "wp": "latest"
   },
   "siteOptions": {
-    "blogname": "Testing \"Enhanced Embed Block for YouTube\" plugin"
+    "blogname": "Testing \"Enhanced Embed Block for YouTube & Vimeo\" plugin"
   },
   "login": true,
   "steps": [
