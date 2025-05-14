@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "author": "Mark Root-Wiley",
   "devDependencies": {
-    "@justinribeiro/lite-youtube": "^1.5.0"
+    "@cshawaus/lite-vimeo": "^1.0.2",
+    "@justinribeiro/lite-youtube": "^1.8.1"
   },
   "scripts": {
-    "update-lite-youtube": "cp node_modules/@justinribeiro/lite-youtube/lite-youtube.js vendor/lite-youtube/; cp node_modules/@justinribeiro/lite-youtube/README.md vendor/lite-youtube; cp node_modules/@justinribeiro/lite-youtube/LICENSE vendor/lite-youtube"
+    "update-lite-youtube": "cp node_modules/@justinribeiro/lite-youtube/lite-youtube.js vendor/lite-youtube/ && cp node_modules/@justinribeiro/lite-youtube/README.md vendor/lite-youtube/ && cp node_modules/@justinribeiro/lite-youtube/LICENSE vendor/lite-youtube/",
+    "update-lite-vimeo": "cp node_modules/@cshawaus/lite-vimeo/lib/index.js vendor/lite-vimeo/ && mv vendor/lite-vimeo/index.js vendor/lite-vimeo/lite-vimeo.js && cp node_modules/@cshawaus/lite-vimeo/README.md vendor/lite-vimeo/ && cp node_modules/@cshawaus/lite-vimeo/LICENSE vendor/lite-vimeo/"
   }
 }
