@@ -1,17 +1,6 @@
-/*
- The "old-school" method of using padding-bottom does not work
- in combination with an element that relies on max-width.
-
- This more modern approach works in either context.
-*/
-lite-youtube {
-	display: block !important; /* required for layout if JS fails to load */
-	padding-bottom: 0 !important; /* remove old method of aspect ratio */
-	aspect-ratio: 16/9 !important;
-}
-
-.lite-youtube-fallback {
+.lite-embed-fallback {
 	--eeb-fallback-background: #000;
+	--eeb-focus-outline-color: red;
 
 	display: flex !important;
 	flex-direction: column !important;
@@ -23,36 +12,34 @@ lite-youtube {
 	padding: 5% !important;
 	background-color: var(--eeb-fallback-background) !important;
 	text-decoration: none !important;
-	transition: opacity 0.15s ease-in-out !important;
 }
 
-.lite-youtube-fallback:hover {
+.lite-embed-fallback:hover {
 	text-decoration: underline !important;
 }
-.lite-youtube-fallback:hover::before {
+.lite-embed-fallback:hover::before {
 	transform: scale(1.1) !important;
 }
 @media (prefers-reduced-motion: reduce) {
-	.lite-youtube-fallback:hover::before {
+	.lite-embed-fallback:hover::before {
 		transform: none !important;
 	}
 }
 
-.lite-youtube-fallback:focus-visible {
-	--eeb-focus-outline-color: red;
+.lite-embed-fallback:focus-visible {
 	outline: 2px solid var(--eeb-focus-outline-color) !important;
-	outline-offset: 3px !important;
+	outline-offset: -4px !important;
 }
 
-.lite-youtube-fallback,
-.lite-youtube-fallback:link,
-.lite-youtube-fallback:hover,
-.lite-youtube-fallback:focus,
-.lite-youtube-fallback:active {
+.lite-embed-fallback,
+.lite-embed-fallback:link,
+.lite-embed-fallback:hover,
+.lite-embed-fallback:focus,
+.lite-embed-fallback:active {
 	color: #fff !important;
 }
 
-.lite-youtube-fallback::before {
+.lite-embed-fallback::before {
 	display: block !important;
 	content: "" !important;
 	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>')
@@ -60,5 +47,16 @@ lite-youtube {
 	width: 68px !important;
 	height: 48px !important;
 	aspect-ratio: 94/67 !important;
+	transform: scale(1) translateZ(0) !important;
 	transition: 0.15s transform ease-in-out !important;
+}
+
+.is-provider-vimeo {
+	--ebb-focus-outline-color: #17D5FF;
+}
+
+.is-provider-vimeo .lite-embed-fallback::before {
+	background: #17D5ff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M45 24 27 14v20" fill="white"/></svg>')
+		center / cover no-repeat !important;
+	border-radius: 10%;
 }
