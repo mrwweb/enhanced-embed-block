@@ -6,7 +6,7 @@
  * Author:          Mark Root-Wiley, MRW Web Design
  * Author URI:      https://MRWweb.com
  * Text Domain:     enhanced-embed-block
- * Version:         1.2.0
+ * Version:         1.2.1
  * Requires at least: 6.5
  * Requires PHP:    7.4
  * GitHub Plugin URI: mrwweb/enhanced-embed-block
@@ -19,7 +19,7 @@
 
 namespace EnhancedEmbedBlock;
 
-define( 'EEB_VERSION', '1.2.0' );
+define( 'EEB_VERSION', '1.2.1' );
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_lite_youtube_component' );
 /**

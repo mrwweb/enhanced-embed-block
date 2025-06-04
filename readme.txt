@@ -5,7 +5,7 @@ Tags: YouTube, Vimeo, embed, video, block
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -82,6 +82,11 @@ This plugin uses the [`lite-youtube` custom-element](https://github.com/justinri
 This plugin uses the [`lite-vimeo` custom-element](https://github.com/cshawaus/lite-vimeo) under the MIT license. Thank you to Chris Shaw for their work on that project.
 
 == Changelog ==
+
+= 1.2.1 (4 June 2025) =
+
+- Fix unset array key warning
+- Improve plugin demo content to include Vimeo examples
 
 = 1.2.0 (14 May 2025) =
 
