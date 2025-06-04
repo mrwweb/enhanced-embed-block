@@ -67,15 +67,7 @@ add_filter( 'render_block_core/embed', __NAMESPACE__ . '\replace_embeds_with_web
  */
 function replace_embeds_with_web_components( $content, $block ) {
 
-	if (
-		! isset( $block['attrs']['url'] ) ||
-		is_feed() ||
-		! in_array(
-			$block['attrs']['providerNameSlug'],
-			array( 'youtube', 'vimeo' ),
-			true
-		)
-	) {
+	if ( should_replace_block( $block ) ) {
 		return $content;
 	}
 
@@ -92,6 +84,23 @@ function replace_embeds_with_web_components( $content, $block ) {
 	}
 
 	return $content;
+}
+
+/**
+ * Runs all checks to determine if we are in the correct context and meet criteria to replace the block
+ *
+ * @param array  $block The block attributes.
+ * @return boolean
+ */
+function should_replace_block( $block ) {
+	return 	! isset( $block['attrs']['url'] ) ||
+			! isset( $block['attrs']['providerNameSlug'] ) ||
+			is_feed() ||
+			! in_array(
+				$block['attrs']['providerNameSlug'],
+				array( 'youtube', 'vimeo' ),
+				true
+			);
 }
 
 require_once plugin_dir_path( __FILE__ ) . 'inc/generic.php';
