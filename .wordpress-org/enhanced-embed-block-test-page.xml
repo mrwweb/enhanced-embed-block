@@ -47,13 +47,56 @@
 		<dc:creator><![CDATA[admin]]></dc:creator>
 		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.3193775543985262/?page_id=5</guid>
 		<description></description>
-		<content:encoded><![CDATA[<!-- wp:columns {"align":"wide"} -->
-<div class="wp-block-columns alignwide"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">16 Videos in a Podcast Series</h2>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">Test Cases</h2>
 <!-- /wp:heading -->
 
-<!-- wp:embed {"url":"https://www.youtube.com/watch?v=FtFoq1iwkyU\u0026list=PLqKZJzLBhX4Lf0XLt3wG1g763D1HYMAvY\u0026index=13\u0026pp=iAQB","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><a href="#youtube">YouTube</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="#vimeo">Vimeo</a></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="youtube">YouTube</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<h3 class="wp-block-heading wp-embed-aspect-16-9 wp-has-aspect-ratio">Single Video with Caption</h3>
+<!-- /wp:heading -->
+
+<!-- wp:embed {"url":"https://www.youtube.com/watch?v=VGhcSupkNs8","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://www.youtube.com/watch?v=VGhcSupkNs8
+</div><figcaption class="wp-element-caption">Captions still work!</figcaption></figure>
+<!-- /wp:embed --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3,"className":"wp-embed-aspect-4-3 wp-has-aspect-ratio"} -->
+<h3 class="wp-block-heading wp-embed-aspect-4-3 wp-has-aspect-ratio">Old Video with fallback thumbnail</h3>
+<!-- /wp:heading -->
+
+<!-- wp:embed {"url":"https://youtu.be/zgFklxPjuv4","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-4-3 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://youtu.be/zgFklxPjuv4
+</div></figure>
+<!-- /wp:embed --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">16 Videos in a Podcast Series</h3>
+<!-- /wp:heading -->
+
+<!-- wp:group {"align":"wide","layout":{"type":"grid"}} -->
+<div class="wp-block-group alignwide"><!-- wp:embed {"url":"https://www.youtube.com/watch?v=FtFoq1iwkyU\u0026list=PLqKZJzLBhX4Lf0XLt3wG1g763D1HYMAvY\u0026index=13\u0026pp=iAQB","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
 https://www.youtube.com/watch?v=FtFoq1iwkyU&amp;list=PLqKZJzLBhX4Lf0XLt3wG1g763D1HYMAvY&amp;index=13&amp;pp=iAQB
 </div></figure>
@@ -148,22 +191,43 @@ https://www.youtube.com/watch?v=_1VEhR6h-eI&amp;list=PLqKZJzLBhX4Lf0XLt3wG1g763D
 https://www.youtube.com/watch?v=2mhHPrvGrqI&amp;list=PLqKZJzLBhX4Lf0XLt3wG1g763D1HYMAvY&amp;index=26&amp;pp=iAQB
 </div></figure>
 <!-- /wp:embed --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"textAlign":"center"} -->
+<h2 class="wp-block-heading has-text-align-center" id="vimeo">Vimeo</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Basic Embed with Caption</h3>
+<!-- /wp:heading -->
+
+<!-- wp:embed {"url":"https://vimeo.com/1035359933","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://vimeo.com/1035359933
+</div><figcaption class="wp-element-caption">This is a video on <strong>hard mode</strong> since it also has a caption! With <strong>bold</strong> and <em>italics!</em></figcaption></figure>
+<!-- /wp:embed -->
+
+<!-- wp:heading {"level":3,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<h3 class="wp-block-heading wp-embed-aspect-16-9 wp-has-aspect-ratio">Embed link without ID</h3>
+<!-- /wp:heading -->
+
+<!-- wp:embed {"url":"https://vimeo.com/basura/facehawk","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://vimeo.com/basura/facehawk
+</div></figure>
+<!-- /wp:embed --></div>
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">Two old videos requiring fallback poster images</h2>
+<div class="wp-block-column"><!-- wp:heading {"level":3,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<h3 class="wp-block-heading wp-embed-aspect-16-9 wp-has-aspect-ratio">With Start Time</h3>
 <!-- /wp:heading -->
 
-<!-- wp:embed {"url":"https://www.youtube.com/watch?v=zgFklxPjuv4","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-4-3 wp-has-aspect-ratio"} -->
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-https://www.youtube.com/watch?v=zgFklxPjuv4
-</div></figure>
-<!-- /wp:embed -->
-
-<!-- wp:embed {"url":"https://www.youtube.com/watch?v=rGnZwiUmqfA"} -->
-<figure class="wp-block-embed"><div class="wp-block-embed__wrapper">
-https://www.youtube.com/watch?v=rGnZwiUmqfA
+<!-- wp:embed {"url":"https://vimeo.com/72163741","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://vimeo.com/72163741
 </div></figure>
 <!-- /wp:embed --></div>
 <!-- /wp:column --></div>
@@ -183,70 +247,7 @@ https://www.youtube.com/watch?v=rGnZwiUmqfA
 		<wp:post_type><![CDATA[page]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-														<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_eaa9363c115b44d07041e5d5ebb8f1dd]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_079235fb1806b6a0739ffe2b5d89ddb2]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_2c8cc0fbd45a95ae9bcd7a724a8f637a]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_67b67d3806a4b1405303f02415835eb1]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_9c3ae5e00fbbb86ad6ce110276de7a7d]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_6b72b8e8f7b47141386cd3956247c16e]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_ae27cb7c3868fe503e9f7cf2817648cb]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_837a1ab32b2b97465a72abe038d3c81a]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_3a7b55ecee101843fe56eaeb32abf529]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_49e909ac7eb497fbcc093b89d477085f]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_bb153b23b16cb2cf930113a9f35ebf17]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_8a618445a89a08cadf5dfadb4d3c7efb]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_1dda4b69c0ad5b432866122358ade1b4]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_8d9ef04e0b31b0eef6865d2b26233e86]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_5dd9edea3f72b9a254de070dbd118956]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_oembed_fb6b054f418e9498b49a7e08968ac4e4]]></wp:meta_key>
-		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
-		</wp:postmeta>
+		<wp:postmeta></wp:postmeta>
 							</item>
 				</channel>
 </rss>
