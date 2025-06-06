@@ -21,6 +21,18 @@ namespace EnhancedEmbedBlock;
 
 define( 'EEB_VERSION', '1.2.1' );
 
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\custom_thumbnail_control' );
+function custom_thumbnail_control() {
+	$asset_file = include plugin_dir_path( __FILE__ ) . 'js/index.asset.php';
+	wp_enqueue_script(
+		'enhanced-embed-block-thumbnail-control',
+		plugins_url( 'js/index.js', __FILE__ ),
+		$asset_file['dependencies'],
+		$asset_file['version'],
+		true
+	);
+}
+
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_lite_youtube_component' );
 /**
  * Enqueue the JavaScript for the lite-youtube web component
@@ -51,8 +63,6 @@ function enqueue_lite_youtube_component() {
 		EEB_VERSION,
 	);
 }
-
-
 
 /* Pre-2020 Blocks */
 add_filter( 'render_block_core-embed/youtube', __NAMESPACE__ . '\replace_embeds_with_web_components', 10, 2 );

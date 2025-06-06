@@ -29,6 +29,8 @@ function render_youtube_embed( $content, $block ) {
 	/* translators: %s: title from YouTube video */
 	$play_button = sprintf( __( 'Play: %s', 'enhanced-embed-block' ), $video_title );
 
+	$custom_thumbnail = isset( $block['attrs']['thumbnailId'] ) ? '<img slot="image" src="' . wp_get_attachment_image_url( $block['attrs']['thumbnailId'], 'large' ) . '">' : '';
+
 	/**
 	 * Filter the poster quality for the YouTube preview thumbnail
 	 *
@@ -51,9 +53,10 @@ function render_youtube_embed( $content, $block ) {
 			<div class="wp-block-embed__wrapper">
 				<lite-youtube videoid="%1$s" videotitle="%7$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="%4$s" posterloading="lazy"%5$s disablenoscript>
 					<a href="%6$s" class="lite-embed-fallback" target="_blank" rel="noreferrer noopenner">Watch "%7$s" on YouTube</a>
+					%8$s
 				</lite-youtube>
 			</div>
-			%8$s
+			%9$s
 		</figure>',
 		esc_attr( $video_id ),
 		esc_attr( $play_button ),
@@ -62,6 +65,7 @@ function render_youtube_embed( $content, $block ) {
 		$nocookie ? ' nocookie ' : '',
 		esc_url( $block['attrs']['url'] ),
 		esc_html( $video_title ),
+		$custom_thumbnail,
 		$embed_caption
 	);
 

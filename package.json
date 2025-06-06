@@ -4,10 +4,15 @@
   "author": "Mark Root-Wiley",
   "devDependencies": {
     "@cshawaus/lite-vimeo": "^1.0.2",
-    "@justinribeiro/lite-youtube": "^1.8.1"
+    "@justinribeiro/lite-youtube": "^1.8.1",
+    "@wordpress/scripts": "^30.18.0"
   },
   "scripts": {
+    "start": "wp-scripts start src/js/index.js --output-path=js --output-filename=index.js",
     "update-lite-youtube": "cp node_modules/@justinribeiro/lite-youtube/lite-youtube.js vendor/lite-youtube/ && cp node_modules/@justinribeiro/lite-youtube/README.md vendor/lite-youtube/ && cp node_modules/@justinribeiro/lite-youtube/LICENSE vendor/lite-youtube/",
     "update-lite-vimeo": "cp node_modules/@cshawaus/lite-vimeo/lib/index.js vendor/lite-vimeo/ && mv vendor/lite-vimeo/index.js vendor/lite-vimeo/lite-vimeo.js && cp node_modules/@cshawaus/lite-vimeo/README.md vendor/lite-vimeo/ && cp node_modules/@cshawaus/lite-vimeo/LICENSE vendor/lite-vimeo/"
+  },
+  "dependencies": {
+    "@10up/block-components": "^1.21.0"
   }
 }
