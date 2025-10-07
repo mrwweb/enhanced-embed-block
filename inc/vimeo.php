@@ -19,9 +19,6 @@ use WP_HTML_TAG_Processor;
 function render_vimeo_embed( $content, $block ) {
 	$video_id = extract_vimeo_id( $block['attrs']['url'], $content );
 
-	do_action( 'qm/debug', $block );
-	
-
 	if ( ! $video_id ) {
 		return $content;
 	}

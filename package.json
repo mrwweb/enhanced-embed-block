@@ -1,10 +1,10 @@
 {
   "name": "enhanced-embed-block",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "author": "Mark Root-Wiley",
   "devDependencies": {
     "@cshawaus/lite-vimeo": "^1.0.2",
-    "@justinribeiro/lite-youtube": "^1.8.1"
+    "@justinribeiro/lite-youtube": "^1.8.2"
   },
   "scripts": {
     "update-lite-youtube": "cp node_modules/@justinribeiro/lite-youtube/lite-youtube.js vendor/lite-youtube/ && cp node_modules/@justinribeiro/lite-youtube/README.md vendor/lite-youtube/ && cp node_modules/@justinribeiro/lite-youtube/LICENSE vendor/lite-youtube/",

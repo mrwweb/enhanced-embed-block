@@ -5,7 +5,7 @@ Tags: YouTube, Vimeo, embed, video, block
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,7 +61,7 @@ No. It enhances the default WordPress Embed block for YouTube and Vimeo videos.
 
 = Does it automatically enhance all my YouTube and Vimeo embeds? =
 
-It works for any embeds using the YouTube or Vimeo variations of the Embed block. Embeds using the [embed] shortcode or literal YouTube embed code in HTML are not enhanced. Using the core WordPress Embed block is highly recommended!
+It works for any embeds using the YouTube or Vimeo variations of the Embed block. Embeds using the [embed] shortcode or a literal YouTube embed code in an HTML block are not enhanced. Using the core WordPress Embed block is highly recommended!
 
 = Why don't Google and Vimeo load all their videos this way by default? =
 
@@ -82,6 +82,13 @@ This plugin uses the [`lite-youtube` custom-element](https://github.com/justinri
 This plugin uses the [`lite-vimeo` custom-element](https://github.com/cshawaus/lite-vimeo) under the MIT license. Thank you to Chris Shaw for their work on that project.
 
 == Changelog ==
+
+= 1.3.0 (7 October 2025) =
+
+- Add missing block CSS classes (including custom ones, if provided)
+- Fixes alignment support (wide, full, etc.)
+- Improve responsive and aspect ratio behavior of blocks. For instance, old YouTube videos now correctly display with 4/3 placeholder and video player!
+- Update lite-youtube component to 1.8.2
 
 = 1.2.1 (4 June 2025) =
 
@@ -112,5 +119,6 @@ This plugin uses the [`lite-vimeo` custom-element](https://github.com/cshawaus/l
 
 == Upgrade Notice ==
 
-= 1.2.0 =
-Add Vimeo support! Upgrade lite-youtube custom element. Even faster loading times.
+= 1.3.0 =
+
+Add support for block alignment (e.g. wide) and responsive block settings

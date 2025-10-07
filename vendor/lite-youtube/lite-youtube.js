@@ -209,6 +209,7 @@ export class LiteYTEmbed extends HTMLElement {
     }
     generateIframe(isIntersectionObserver = false) {
         let autoplay = isIntersectionObserver ? 0 : 1;
+        let autoPause = this.autoPause ? '&enablejsapi=1' : '';
         const wantsNoCookie = this.noCookie ? '-nocookie' : '';
         let embedTarget;
         if (this.playlistId) {
@@ -217,9 +218,6 @@ export class LiteYTEmbed extends HTMLElement {
         else {
             embedTarget = `${this.videoId}?`;
         }
-        if (this.autoPause) {
-            this.params = `enablejsapi=1`;
-        }
         if (this.isYouTubeShort()) {
             this.params = `loop=1&mute=1&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&playlist=${this.videoId}`;
             autoplay = 1;
@@ -227,7 +225,7 @@ export class LiteYTEmbed extends HTMLElement {
         return `
 <iframe credentialless frameborder="0" title="${this.videoTitle}"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube${wantsNoCookie}.com/embed/${embedTarget}autoplay=${autoplay}&${this.params}"
+  src="https://www.youtube${wantsNoCookie}.com/embed/${embedTarget}autoplay=${autoplay}${autoPause}&${this.params}"
 ></iframe>`;
     }
     addIframe(isIntersectionObserver = false) {
@@ -343,4 +341,3 @@ export class LiteYTEmbed extends HTMLElement {
 }
 LiteYTEmbed.isPreconnected = false;
 customElements.define('lite-youtube', LiteYTEmbed);
-//# sourceMappingURL=lite-youtube.js.map
