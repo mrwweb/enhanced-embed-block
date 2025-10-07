@@ -19,6 +19,9 @@ use WP_HTML_TAG_Processor;
 function render_vimeo_embed( $content, $block ) {
 	$video_id = extract_vimeo_id( $block['attrs']['url'], $content );
 
+	do_action( 'qm/debug', $block );
+	
+
 	if ( ! $video_id ) {
 		return $content;
 	}
@@ -34,9 +37,9 @@ function render_vimeo_embed( $content, $block ) {
 
 	/* Craft the new output: the web component with HTML fallback link */
 	$content = sprintf(
-		'<figure class="wp-block-embed-vimeo wp-block-embed is-type-video is-provider-vimeo">
+		'<figure class="wp-block-embed-vimeo wp-block-embed is-type-video is-provider-vimeo %7$s %8$s">
 			<div class="wp-block-embed__wrapper">
-				<lite-vimeo videoid="%1$s" videotitle="%2$s" videoplay="%3$s" start="%4$ds">
+				<lite-vimeo videoid="%1$s" videotitle="%2$s" videoplay="%3$s" start="%4$ds" %9$s>
 					<a href="%5$s" class="lite-embed-fallback" target="_blank" rel="noreferrer noopenner">Watch "%2$s" on Vimeo</a>
 				</lite-vimeo>
 			</div>
@@ -47,7 +50,10 @@ function render_vimeo_embed( $content, $block ) {
 		esc_html( $play_button ),
 		$start_time,
 		esc_url( $block['attrs']['url'] ),
-		$embed_caption
+		$embed_caption,
+		esc_attr( $block['attrs']['className'] ),
+		alignment_class( $block ),
+		aspect_ratio_style( $block )
 	);
 
 	return $content;

@@ -8,7 +8,7 @@
 	align-items: center !important;
 	text-align: center !important;
 	gap: 5% !important;
-	aspect-ratio: 16/9 !important;
+	aspect-ratio: var(--embed-aspect-ratio, 16/9) !important;
 	padding: 5% !important;
 	background-color: var(--eeb-fallback-background) !important;
 	text-decoration: none !important;

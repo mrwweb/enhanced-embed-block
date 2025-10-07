@@ -47,9 +47,9 @@ function render_youtube_embed( $content, $block ) {
 
 	/* Craft the new output: the web component with HTML fallback link */
 	$content = sprintf(
-		'<figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube">
+		'<figure class="wp-block-embed wp-block-embed-youtube is-type-video is-provider-youtube %9$s%10$s">
 			<div class="wp-block-embed__wrapper">
-				<lite-youtube videoid="%1$s" videotitle="%7$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="%4$s" posterloading="lazy"%5$s disablenoscript>
+				<lite-youtube videoid="%1$s" videotitle="%7$s" videoplay="%2$s" videoStartAt="%3$d" posterquality="%4$s" posterloading="lazy"%5$s %11$s disablenoscript>
 					<a href="%6$s" class="lite-embed-fallback" target="_blank" rel="noreferrer noopenner">Watch "%7$s" on YouTube</a>
 				</lite-youtube>
 			</div>
@@ -62,7 +62,10 @@ function render_youtube_embed( $content, $block ) {
 		$nocookie ? ' nocookie ' : '',
 		esc_url( $block['attrs']['url'] ),
 		esc_html( $video_title ),
-		$embed_caption
+		$embed_caption,
+		esc_attr( $block['attrs']['className'] ),
+		alignment_class( $block ),
+		aspect_ratio_style( $block )
 	);
 
 	return $content;
