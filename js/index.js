@@ -42469,10 +42469,10 @@ function AttachmentImage({
 
 /***/ }),
 
-/***/ "./src/js/block-settings.js":
-/*!**********************************!*\
-  !*** ./src/js/block-settings.js ***!
-  \**********************************/
+/***/ "./src/js/block-editor.js":
+/*!********************************!*\
+  !*** ./src/js/block-editor.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -42499,6 +42499,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//import './youtube.js';
 
 const blocksWithSetting = ['core/embed'];
 const providersWithSetting = ['youtube'];
@@ -42511,7 +42512,8 @@ const addThumbnailControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.c
     const {
       attributes: {
         thumbnailId,
-        providerNameSlug
+        providerNameSlug,
+        url
       },
       setAttributes,
       name
@@ -42522,8 +42524,15 @@ const addThumbnailControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.c
       });
     }
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(BlockEdit, {
-        ...props
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("lite-youtube", {
+        videoid: extract_youtube_id_from_uri(url),
+        ...props,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(BlockEdit, {
+          ...props
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_attachment_image__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          imageId: thumbnailId,
+          size: "large"
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.MediaToolbar, {
           isOptional: true,
@@ -42545,6 +42554,13 @@ const addThumbnailControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.c
   };
 }, 'addThumbnailControl');
 (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.addFilter)('editor.BlockEdit', 'mrw/add-thumbnail-control', addThumbnailControl);
+function extract_youtube_id_from_uri(uri) {
+  const parsedUri = new URL(uri).searchParams;
+  if (parsedUri.has('v')) {
+    return parsedUri.get('v');
+  }
+  return false;
+}
 
 /***/ }),
 
@@ -42904,7 +42920,7 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_attributes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./register-attributes */ "./src/js/register-attributes.js");
-/* harmony import */ var _block_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./block-settings */ "./src/js/block-settings.js");
+/* harmony import */ var _block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./block-editor */ "./src/js/block-editor.js");
 
 
 })();

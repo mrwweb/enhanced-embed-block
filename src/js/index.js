@@ -1,2 +1,2 @@
 import './register-attributes';
-import './block-settings';
+import './block-editor';

@@ -33,13 +33,13 @@ function custom_thumbnail_control() {
 	);
 }
 
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_lite_youtube_component' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\register_assets' );
 /**
  * Enqueue the JavaScript for the lite-youtube web component
  *
  * @return void
  */
-function enqueue_lite_youtube_component() {
+function register_assets() {
 	wp_register_script_module(
 		'lite-youtube',
 		plugins_url( 'vendor/lite-youtube/lite-youtube.js', __FILE__ ),
@@ -62,6 +62,19 @@ function enqueue_lite_youtube_component() {
 		array(),
 		EEB_VERSION,
 	);
+}
+
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_editor_assets' );
+/**
+ * Enqueue the web component scripts for the embed blocks
+ *
+ * @return void
+ */
+function enqueue_editor_assets() {
+	if( is_admin() ) {
+		wp_enqueue_script_module( 'lite-youtube' );
+		wp_enqueue_style( 'lite-embed-fallback' );
+	}
 }
 
 /* Pre-2020 Blocks */

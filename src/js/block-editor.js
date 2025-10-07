@@ -5,6 +5,7 @@ import { Fragment } from '@wordpress/element';
 import { BlockControls } from '@wordpress/block-editor';
 import { MediaToolbar } from '@10up/block-components';
 import AttachmentImage from './attachment-image';
+//import './youtube.js';
 
 const blocksWithSetting = [ 'core/embed' ];
 const providersWithSetting = [ 'youtube' ];
@@ -15,7 +16,7 @@ const providersWithSetting = [ 'youtube' ];
 const addThumbnailControl = createHigherOrderComponent((BlockEdit) => {
 	return (props) => {
 		const {
-			attributes: { thumbnailId, providerNameSlug },
+			attributes: { thumbnailId, providerNameSlug, url },
 			setAttributes,
 			name,
 		} = props;
@@ -28,7 +29,10 @@ const addThumbnailControl = createHigherOrderComponent((BlockEdit) => {
 
 		return (
 			<Fragment>
-				<BlockEdit {...props} />
+                <lite-youtube videoid={extract_youtube_id_from_uri(url)} {...props}>
+    				<BlockEdit {...props} />
+                    <AttachmentImage imageId={thumbnailId} size="large" />
+                </lite-youtube>
                 <BlockControls>
                     <MediaToolbar
                         isOptional
@@ -52,3 +56,11 @@ addFilter(
 	'mrw/add-thumbnail-control',
 	addThumbnailControl
 );
+
+function extract_youtube_id_from_uri( uri ) {
+    const parsedUri = new URL( uri ).searchParams;
+    if ( parsedUri.has( 'v' ) ) {
+        return parsedUri.get( 'v' );
+    }
+    return false
+}
