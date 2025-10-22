@@ -57,14 +57,13 @@ function alignment_class( $block ) {
  */
 function aspect_ratio_style( $block ) {
 	if( isset( $block['attrs']['className'] ) && str_contains( $block['attrs']['className'], 'wp-embed-aspect-' ) ) {
-		$style = 'position:absolute;inset:0;';
 		if( $block['attrs']['providerNameSlug'] === 'youtube' ) {
 			//php regex to extract the aspect ratio from the class name
 			preg_match( '/wp-embed-aspect-([0-9]+)-([0-9]+)/', $block['attrs']['className'], $matches );
-			$style .= '--lite-youtube-aspect-ratio:' . $matches[1] . '/' . $matches[2] . ';';
+			$style = '--lite-youtube-aspect-ratio:' . $matches[1] . '/' . $matches[2] . ';';
+			return ' style="' . $style . '" ';
 		}
 		
-		return ' style="' . $style . '" ';
 	}
 	return '';
 }

@@ -1,3 +1,8 @@
+/* We handle aspect ratio at the embed level and don't need the pseudo-element padding hack */
+.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper::before {
+	display: none !important;
+}
+
 .lite-embed-fallback {
 	--eeb-fallback-background: #000;
 	--eeb-focus-outline-color: red;
