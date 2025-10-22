@@ -17,4 +17,4 @@ The plugin further improves things by providing a no-JS fallback and ensuring th
 
 ## See also
 
-`readme.txt`` for the WordPress plugin repository readme
+`readme.txt` for the WordPress plugin repository readme

@@ -6,7 +6,7 @@
  * Author:          Mark Root-Wiley, MRW Web Design
  * Author URI:      https://MRWweb.com
  * Text Domain:     enhanced-embed-block
- * Version:         1.3.0
+ * Version:         1.3.1
  * Requires at least: 6.5
  * Requires PHP:    7.4
  * GitHub Plugin URI: mrwweb/enhanced-embed-block
@@ -19,7 +19,7 @@
 
 namespace EnhancedEmbedBlock;
 
-define( 'EEB_VERSION', '1.3.0' );
+define( 'EEB_VERSION', '1.3.1' );
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_lite_youtube_component' );
 /**
@@ -32,7 +32,7 @@ function enqueue_lite_youtube_component() {
 		'lite-youtube',
 		plugins_url( 'vendor/lite-youtube/lite-youtube.js', __FILE__ ),
 		array(),
-		'1.8.1',
+		'1.8.2',
 		array( 'async' => true )
 	);
 
@@ -45,8 +45,8 @@ function enqueue_lite_youtube_component() {
 	);
 
 	wp_register_style(
-		'lite-embed-fallback',
-		plugins_url( 'css/lite-embed-fallback.css', __FILE__ ),
+		'enhanced-embed',
+		plugins_url( 'css/enhanced-embed.css', __FILE__ ),
 		array(),
 		EEB_VERSION,
 	);
@@ -71,7 +71,7 @@ function replace_embeds_with_web_components( $content, $block ) {
 		return $content;
 	}
 
-	wp_enqueue_style( 'lite-embed-fallback' );
+	wp_enqueue_style( 'enhanced-embed' );
 
 	switch ( $block['attrs']['providerNameSlug'] ) {
 		case 'youtube':

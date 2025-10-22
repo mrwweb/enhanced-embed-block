@@ -83,6 +83,10 @@ This plugin uses the [`lite-vimeo` custom-element](https://github.com/cshawaus/l
 
 == Changelog ==
 
+= 1.3.1 (22 October 2025) =
+
+- Adjust approach to managing default WordPress aspect ratio styles to avoid "collapsed" layouts in some themes
+
 = 1.3.0 (7 October 2025) =
 
 - Add missing block CSS classes (including custom ones, if provided)
